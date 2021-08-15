@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import { getLikes, addLike } from './likesAPI.js';
 import { getComments, submitComment } from './commentsAPI.js';
@@ -65,22 +66,21 @@ class UI {
 
     function openCommentsModal(sourceId) {
       console.log('works');
-      closePop.addEventListener('click', () => {
-        if (!openPop.classList.contains('hidden')) {
-          console.log('ok');
-          openPop.addClass(' hidden');
-        }
-      });
-      const imageM = document.querySelector(`#${sourceId}`)[0].getAttribute('src');
+      
+      const imageM = document.getElementsByClassName(sourceId);//[0].getAttribute('src');
       movieImage.src = imageM;
       console.log(imageM);
       console.log(movieImage.src);
 
-      const nameM = document.querySelector(`#${sourceId}`)[1];
-      movieName.innerHTML = nameM[0].innerHTML;
+      const nameM = document.getElementsByClassName(sourceId)[1];
+      console.log(nameM);
+      // movieName.innerHTML = nameM[0].innerHTML;
 
-      const premierM = document.querySelector(`#${sourceId}`)[1];
-      movieYear.innerHTML = premierM[1].innerHTML;
+      const premierM = document.getElementsByClassName(sourceId)[1];
+      console.log(premierM);
+      // movieYear.innerHTML = premierM[1].innerHTML;
+
+      closePop.addEventListener('click', console.log('listen works'));
     }
 
     Array.from(movieKids).forEach((item) => {
